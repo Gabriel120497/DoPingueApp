@@ -1,0 +1,68 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Arma tu Kit</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Arma tu Kit</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-list>
+      <ion-list-header>
+        Dulces
+      </ion-list-header>
+      <ion-item *ngFor="let item of dulce">
+        <ion-label>{{item.Nombre}}</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header>
+        Salados
+      </ion-list-header>
+      <ion-item *ngFor="let item of salado">
+        <ion-label>{{item.Nombre}}</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header>
+        Bebidas
+      </ion-list-header>
+      <ion-item *ngFor="let item of bebidas">
+        <ion-label>{{item.Nombre}}</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header>
+        Miscelaneos
+      </ion-list-header>
+      <ion-item *ngFor="let item of miscelaneos">
+        <ion-label>{{item.Nombre}}</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header>
+        Salud y Belleza
+      </ion-list-header>
+      <ion-item *ngFor="let item of saludBelleza">
+        <ion-label>{{item.Nombre}}</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

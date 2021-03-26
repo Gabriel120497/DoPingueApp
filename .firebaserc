@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "do-pingue": {
+      "hosting": {
+        "app": [
+          "do-pingue"
+        ]
+      }
+    }
+  }
+}
