@@ -1,5 +1,6 @@
 export interface ProductosInterface {
     Nombre?: string;
     Tipo?: string;
-    Valor?: Number;
+    Valor?: number;
+    Kits?: String[];
   }

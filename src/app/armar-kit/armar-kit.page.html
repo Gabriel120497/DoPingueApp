@@ -21,7 +21,7 @@
       </ion-list-header>
       <ion-item *ngFor="let item of dulce">
         <ion-label>{{item.Nombre}}</ion-label>
-        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-checkbox slot="start" (ionChange)="sumarPrecio(item.Valor, $event.target.checked)"></ion-checkbox>
       </ion-item>
     </ion-list>
 
@@ -31,7 +31,7 @@
       </ion-list-header>
       <ion-item *ngFor="let item of salado">
         <ion-label>{{item.Nombre}}</ion-label>
-        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-checkbox slot="start" (ionChange)="sumarPrecio(item.Valor, $event.target.checked)"></ion-checkbox>
       </ion-item>
     </ion-list>
 
@@ -41,7 +41,7 @@
       </ion-list-header>
       <ion-item *ngFor="let item of bebidas">
         <ion-label>{{item.Nombre}}</ion-label>
-        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-checkbox slot="start" (ionChange)="sumarPrecio(item.Valor, $event.target.checked)"></ion-checkbox>
       </ion-item>
     </ion-list>
 
@@ -51,7 +51,7 @@
       </ion-list-header>
       <ion-item *ngFor="let item of miscelaneos">
         <ion-label>{{item.Nombre}}</ion-label>
-        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-checkbox slot="start" (ionChange)="sumarPrecio(item.Valor, $event.target.checked)"></ion-checkbox>
       </ion-item>
     </ion-list>
 
@@ -61,8 +61,15 @@
       </ion-list-header>
       <ion-item *ngFor="let item of saludBelleza">
         <ion-label>{{item.Nombre}}</ion-label>
-        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-checkbox slot="start" (ionChange)="sumarPrecio(item.Valor, $event.target.checked)"></ion-checkbox>
       </ion-item>
     </ion-list>
   </div>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>
+      Total: ${{total}}
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -15,6 +15,23 @@
   </ion-header>
 
   <div id="container">
-    <ion-title>Kits</ion-title>
+
+    <ion-card *ngFor="let item of kits">
+      <ion-item button (click) = "getKit(item.Nombre)">
+        <ion-icon name="pin" slot="start"></ion-icon>
+        <ion-grid [fixed]="true">
+          <ion-row>
+            <ion-col>
+              <ion-label>{{ item.Nombre }}</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-label>${{ item.Precio }}</ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card>
   </div>
 </ion-content>
