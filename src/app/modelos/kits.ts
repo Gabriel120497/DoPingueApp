@@ -1,4 +1,5 @@
 export interface KitsInterface {
     Nombre?: string;
-    Precio?: number
+    Precio?: number;
+    Productos?: [];
   }

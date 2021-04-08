@@ -9,6 +9,7 @@ import { ProductosInterface } from '../modelos/productos';
 })
 export class ArmarKitService {
 
+  productsSended:any[] = [];
   constructor(private afs: AngularFirestore) {
     this.productsCollection = afs.collection<ProductosInterface>('productos');
     this.products = this.productsCollection.valueChanges();
@@ -19,10 +20,22 @@ export class ArmarKitService {
   getAllProducts() {
     return this.products;
   }
+  getUncheckedProducts(products: String[]){
+    return this.afs.collection('productos', ref => ref.where("Nombre", "not-in", products)).valueChanges();
+  } 
   getAllKits() {
     return this.afs.collection('kits').valueChanges();
   }
-  getKiyByName(name: String) {
+  getKitByName(name: String) {
     return this.afs.collection('kits', ref => ref.where("Nombre", "==", name)).valueChanges();
+  }
+
+  sendProducts(products:any[]){
+    this.productsSended = products[0].Productos;
+  }
+  getProducts(){
+    let productSendedCopy = this.productsSended;
+    this.productsSended = [];
+    return productSendedCopy;
   }
 }

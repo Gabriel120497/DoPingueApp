@@ -17,4 +17,4 @@ import { KitsPage } from './kits.page';
   ],
   declarations: [KitsPage]
 })
-export class KitsPageModule {}
+export class KitsPageModule { }

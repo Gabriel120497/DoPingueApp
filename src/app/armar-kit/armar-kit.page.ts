@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ProductosInterface } from '../modelos/productos';
 import { ArmarKitService } from '../servicios/armar-kit.service';
 
@@ -17,26 +18,39 @@ export class ArmarKitPage implements OnInit {
   saludBelleza: ProductosInterface[];
   total: number = 0;
   isChecked: boolean = false;
-  constructor(private servicioProductos: ArmarKitService) { }
+  nombreProductos: any[] = [];
+  nombreProductosCopia: any[] = [];
+  constructor(private servicioProductos: ArmarKitService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.servicioProductos.getAllProducts().subscribe(products => {
-      console.log(products);
-      
+      products.forEach(element => {
+        element.Checked = false;
+      });
       this.miscelaneos = products.filter(tipo => tipo.Tipo == 'Miscelaneos');
       this.bebidas = products.filter(tipo => tipo.Tipo == 'Bebidas');
       this.salado = products.filter(tipo => tipo.Tipo == 'Salado');
       this.dulce = products.filter(tipo => tipo.Tipo == 'Dulce');
       this.saludBelleza = products.filter(tipo => tipo.Tipo == 'Salud y Belleza');
+      this.nombreProductos = this.servicioProductos.getProducts();
+      for (let index = 0; index < this.nombreProductos.length; index++) {
+        for (let indexj = 0; indexj < products.length; indexj++) {
+          if (this.nombreProductos[index].Nombre == products[indexj].Nombre) {
+            products[indexj].Checked = true;
+          }
+        }
+      }
+      console.log(products);
+
     });
   }
-  sumarPrecio(valor, evento){
+  sumarPrecio(valor, evento) {
     if (evento) {
       this.total += valor;
       console.log("sumar", valor);
       console.log(evento);
     } else {
-      this.total = this.total-valor;
+      this.total = this.total - valor;
       console.log("restar ", valor);
       console.log(evento);
     }

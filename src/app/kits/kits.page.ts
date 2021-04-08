@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { KitsInterface } from '../modelos/kits';
-import { ProductosInterface } from '../modelos/productos';
 import { ArmarKitService } from '../servicios/armar-kit.service';
 
 @Component({
@@ -11,29 +11,22 @@ import { ArmarKitService } from '../servicios/armar-kit.service';
 })
 export class KitsPage implements OnInit {
 
-  kits: KitsInterface[];
-  cumpleaños: ProductosInterface[];
-  grados: ProductosInterface[];
-  spa: ProductosInterface[];
-  diaDeLaMadre: ProductosInterface[];
-  diaDelPadre: ProductosInterface[];
-  diaDeLaMujer: ProductosInterface[];
-
-  constructor(private activatedRoute: ActivatedRoute, private servicioProductos: ArmarKitService) { }
+  allKits: KitsInterface[];
+  checkedProducts: any[] = [];
+  constructor(private servicioProductos: ArmarKitService, private modalCtrl: ModalController, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.servicioProductos.getAllKits().subscribe(products => {
-      this.kits = products;
-      console.log("kits: ", this.kits);
+      this.allKits = products;
+      console.log("kits: ", this.allKits);
     });
   }
 
-  getKit(nombre: String){
+  async getKit(nombre: String) {
     console.log(nombre);
-    this.servicioProductos.getKiyByName(nombre).subscribe(kit => {
-      console.log(kit);
-      
-    })
+    this.servicioProductos.getKitByName(nombre).subscribe(kit => {
+      this.servicioProductos.sendProducts(kit);
+    });
   }
 
 }
