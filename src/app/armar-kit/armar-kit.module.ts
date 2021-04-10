@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ArmarKitPageRoutingModule } from './armar-kit-routing.module';
 
 import { ArmarKitPage } from './armar-kit.page';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ArmarKitPageRoutingModule
+    ArmarKitPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [ArmarKitPage]
 })

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { element } from 'protractor';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { ProductosInterface } from '../modelos/productos';
 
@@ -11,10 +10,8 @@ export class ArmarKitService {
 
   productsSended:any[] = [];
   constructor(private afs: AngularFirestore) {
-    this.productsCollection = afs.collection<ProductosInterface>('productos');
-    this.products = this.productsCollection.valueChanges();
+    this.products = afs.collection<ProductosInterface>('productos').valueChanges();
   }
-  private productsCollection: AngularFirestoreCollection<ProductosInterface>;
   private products: Observable<ProductosInterface[]>;
 
   getAllProducts() {
@@ -37,5 +34,9 @@ export class ArmarKitService {
     let productSendedCopy = this.productsSended;
     this.productsSended = [];
     return productSendedCopy;
+  }
+
+  getAllMiscellaneusProducts(){
+    return this.afs.collection('productos', ref => ref.where("Tipo", "==", "Miscelaneos")).valueChanges();
   }
 }

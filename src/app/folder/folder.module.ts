@@ -16,8 +16,7 @@ import { KitsPage } from '../kits/kits.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    FolderPageRoutingModule,
-    //KitsPageModule
+    FolderPageRoutingModule
   ],
   declarations: [FolderPage]
 })

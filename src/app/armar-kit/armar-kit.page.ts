@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductosInterface } from '../modelos/productos';
 import { ArmarKitService } from '../servicios/armar-kit.service';

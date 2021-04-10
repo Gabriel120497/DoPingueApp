@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { MiscelaneosPageRoutingModule } from './miscelaneos-routing.module';
 
 import { MiscelaneosPage } from './miscelaneos.page';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MiscelaneosPageRoutingModule
+    MiscelaneosPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [MiscelaneosPage]
 })

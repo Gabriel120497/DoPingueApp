@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { KitsPageRoutingModule } from './kits-routing.module';
 
 import { KitsPage } from './kits.page';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    KitsPageRoutingModule
+    KitsPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [KitsPage]
 })
