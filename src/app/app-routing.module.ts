@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Kits',
+    redirectTo: 'folder/Contabilidad/nueva-venta',
     pathMatch: 'full'
   },
   {
@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'folder/Armar-Kit',
     loadChildren: () => import('./armar-kit/armar-kit.module').then(m => m.ArmarKitPageModule)
+  },
+  {
+    path: 'folder/Contabilidad',
+    loadChildren: () => import('./contabilidad/contabilidad.module').then(m => m.ContabilidadPageModule)
   }
 ];
 

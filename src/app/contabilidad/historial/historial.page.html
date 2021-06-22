@@ -1,0 +1,57 @@
+<ion-content [fullscreen]="true">
+    <div id="container">
+        <ion-card *ngFor="let item of historial">
+            <ion-item>
+                <ion-grid [fixed]="true">
+                    <ion-row>
+                        <ion-col>
+                            <ion-label>{{item.producto}}</ion-label>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <ion-note>Fecha: {{item.fecha}}</ion-note>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <ion-note>Cantidad: {{item.cantidad}}</ion-note>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <ion-note>Precio Unitario: {{item.precioUnitario}}</ion-note>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <ion-note>Costo: {{item.costo}}</ion-note>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <ion-note>Ingreso: {{item.ingreso}}</ion-note>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <ion-note>Ganancia: {{item.ganancia}}</ion-note>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <ion-note>Cliente: {{item.cliente}}</ion-note>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+        </ion-card>
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+      <ion-title>
+        Balance Aprox: ${{ balance }}
+      </ion-title>
+    </ion-toolbar>
+  </ion-footer>

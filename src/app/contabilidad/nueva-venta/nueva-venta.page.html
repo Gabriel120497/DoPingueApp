@@ -1,0 +1,50 @@
+<ion-content>
+    <form [formGroup]="venta">
+        <ion-item>
+            <ion-label>Ingresar Fecha</ion-label>
+            <ion-datetime class="dato" formControlName="fecha" displayFormat="DD/MM/YYYY" min="1994-03-14"
+                max="2050-12-12">
+            </ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label>Producto</ion-label>
+            <ion-input class="dato" formControlName="producto"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Tipo</ion-label>
+            <ion-select class="dato" formControlName="tipo" placeholder="Select One">
+                <ion-select-option *ngFor="let item of tipo">{{item.value}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Cantidad</ion-label>
+            <ion-input class="dato" formControlName="cantidad" type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Precio Unitario</ion-label>
+            <ion-input class="dato" (ionChange)="calcularCosto()" formControlName="precioUnitario" type="number">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Costo</ion-label>
+            <ion-label class="dato" type="number">{{costo}}</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label>Ingreso</ion-label>
+            <ion-input class="dato" (ionChange)="calcularGanancia()" formControlName="ingreso" type="number">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Ganacia</ion-label>
+            <ion-label class="dato" type="number">{{ganancia}}</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label>Cliente</ion-label>
+            <ion-input class="dato" formControlName="cliente"></ion-input>
+        </ion-item>
+    </form>
+    <div class="boton">
+        <ion-button expand="block" (click)="crear()">Crear</ion-button>
+    </div>
+
+</ion-content>

@@ -12,9 +12,11 @@ export class HeaderComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.folder = this.activatedRoute.snapshot.parent.url[1].path.replace('-', ' ');
-    console.log(this.activatedRoute.snapshot.parent.url[1].path);
-    
+    if (this.activatedRoute.snapshot.parent.url.length > 1) {
+      this.folder = this.activatedRoute.snapshot.parent.url[1].path.replace('-', ' ');
+    } else if (this.activatedRoute.snapshot.parent.url.length == 1) {
+      this.folder = this.activatedRoute.snapshot.parent.url[0].path.replace('-', ' ');
+    }
   }
 
 }
